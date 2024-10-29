@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    h1, h2 {
+        font-family: "Playfair Display", serif;
+    }
+
+    .second-text-font{
+        font-family: "Work Sans", sans-serif;
+    }
+  }
