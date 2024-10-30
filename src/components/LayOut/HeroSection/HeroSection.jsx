@@ -17,6 +17,7 @@ const HeroSection = () => {
                     <img src={HeroImage} alt="" />
                 </div>
             </div>
+            
         </div>
 
 
@@ -28,21 +29,7 @@ export default HeroSection;
 
 
 
-/* 
-
-        <div className="container px-4 mx-auto">
-            <div className="flex bg-[#1313130D] rounded-xl px-9 py-12 lg:px-40 lg:py-28">
-                <div className='w-3/4'>
-                    <h1 className='text-xl mb-5 lg:text-5xl lg:w-[65%] lg:mb-10 leading-tight'>Books to freshen up your bookshelf</h1>
-                    <button type="button" className="px-8 py-3 font-semibold border rounded bg-[#23BE0A] text-white hover:bg-[#59C6D2]">View The List</button>
-                </div>
-                <div className='w-1/4'>
-                    <img src={HeroImage} alt="" />
-                </div>
-            </div>
-        </div>
-
-
+/*
 
         html
         ======

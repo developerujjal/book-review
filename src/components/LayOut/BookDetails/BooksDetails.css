@@ -1,0 +1,21 @@
+.wrapper-details {
+    display: flex;
+    gap: 38px;
+    padding: 50px 30px;
+}
+
+.details-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1313130D;
+}
+
+.details-des-container {
+    width: 50%;
+}
+
+.details-img img {
+    width: 55%;
+}
