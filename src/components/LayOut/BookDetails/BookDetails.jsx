@@ -1,5 +1,4 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import './BooksDetails.css'
 
 const BookDetails = () => {
     const booksData = useLoaderData();
@@ -23,45 +22,45 @@ const BookDetails = () => {
     return (
         <section>
             <div className="container px-4 mx-auto">
-                <div className="wrapper-details">
-                    <div className="details-img">
-                        <img src={image} alt="" />
+                <div className="flex flex-col gap-[38px] md:flex-row md:py-12 md:px-[30px]">
+                    <div className=" flex justify-center items-center bg-[#1313130D] rounded-lg py-5 md:w-[50%]">
+                        <img src={image} alt="" className="w-1/2" />
                     </div>
-                    <div className="details-des-container">
-                        <div className=" border-b-2 border-dashed border-[#13131326]">
-                            <h2 className='text-[22px] font-bold mb-1.5 text-[#131313]'>{bookName}</h2>
-                            <p className='pb-4 text-[#131313CC] font-medium'>By :<span> {author}</span></p>
+                    <div className="md:w-[50%]">
+                        <div className=" border-b-2 border-[#13131326]">
+                            <h2 className='text-3xl font-bold mb-3 text-[#131313] md:text-4xl'>{bookName}</h2>
+                            <p className='pb-4 text-[#131313CC] font-medium text-base'>By :<span> {author}</span></p>
                         </div>
-                        <div className="text-[#131313CC] font-medium">
+                        <div className="text-[#131313CC] font-medium py-2 text-[17px] border-b-2 border-[#13131326]">
                             <p><span>{category}</span></p>
                         </div>
-                        <div className="review-details-container">
-                            <div className="review-detials">
+                        <div className="border-b-2 border-[#13131326]">
+                            <div className="mt-[18px]">
                                 <p><span className="font-bold">Review: </span>{review}</p>
                             </div>
-                            <div className="flex gap-5 items-center my-4 mx-0">
+                            <div className="flex gap-5 items-center mt-4 pb-4">
                                 <p className="font-bold"><span>Tags: </span></p>
                                 <a href="#" className='bg-[#23BE0A0D] text-[#23BE0A] font-medium py-1.5 px-5 rounded-[18px] text-[15px]'>#{tags[0]}</a>
                                 <a href="#" className='bg-[#23BE0A0D] text-[#23BE0A] font-medium py-1.5 px-5 rounded-[18px] text-[15px]'>#{tags[1]}</a>
 
                             </div>
                         </div>
-                        <div className="more-information">
-                            <div>
+                        <div className="mt-[18px] mb-6">
+                            <div className="grid grid-cols-2 ">
                                 <p><span>Number of Pages:</span></p>
-                                <p><span>281</span></p>
+                                <p><span className="font-bold">281</span></p>
                             </div>
-                            <div>
+                            <div className="grid grid-cols-2 ">
                                 <p><span>Publisher:</span></p>
-                                <p><span>J.B Lippincott & Co.</span></p>
+                                <p><span className="font-bold">J.B Lippincott & Co.</span></p>
                             </div>
-                            <div>
+                            <div className="grid grid-cols-2 ">
                                 <p> <span>Year of Publishing:</span></p>
-                                <p><span>1960</span></p>
+                                <p><span className="font-bold">1960</span></p>
                             </div>
-                            <div>
+                            <div className="grid grid-cols-2 ">
                                 <p><span>Rating:</span></p>
-                                <p><span>4.8</span></p>
+                                <p><span className="font-bold">4.8</span></p>
                             </div>
                         </div>
                         <div className="flex gap-4">

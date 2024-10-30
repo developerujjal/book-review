@@ -1,21 +1,32 @@
 .wrapper-details {
-    display: flex;
-    gap: 38px;
-    padding: 50px 30px;
+    /* display: flex; */
+    /* gap: 38px; */
+    /* padding: 50px 30px 100px 30px; */
 }
 
 .details-img {
-    width: 50%;
-    display: flex;
+    /* width: 50%; */
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #1313130D;
+    align-items: center; */
+    /* background-color: #1313130D;
+    border-radius: 8px; */
 }
 
 .details-des-container {
-    width: 50%;
+    /* width: 50%; */
 }
 
 .details-img img {
-    width: 55%;
+    /* width: 50%; */
 }
+
+.review-detials {
+    /* margin-top: 18px; */
+}
+
+.more-information {
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+
