@@ -1,9 +1,10 @@
+import ListedBookSection from "../../LayOut/ListedBookSection/ListedBookSection";
 
 const ListedBook = () => {
     return (
-        <div>
-            <h1>Lised Book</h1>
-        </div>
+        <section>
+            <ListedBookSection />
+        </section>
     );
 };
 
