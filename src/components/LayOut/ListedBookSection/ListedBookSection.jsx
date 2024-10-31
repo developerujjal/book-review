@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import SortBy from "../SortBy/SortBy";
 import TabsMenu from "../TabsMenu/TabsMenu";
 
@@ -26,7 +27,7 @@ const ListedBookSection = () => {
                 </div>
                 <div className="mt-8">
                     <div className="py-5 md:px-1 md:py-6 lg:px-5 lg:py-10">
-
+                        <Outlet />
                     </div>
                 </div>
 
