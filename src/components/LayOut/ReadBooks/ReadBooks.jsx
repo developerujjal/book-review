@@ -1,18 +1,26 @@
 import { useLoaderData } from "react-router-dom";
 import { getData } from "../../Utility/Utility";
+import { useEffect, useState } from "react";
+import ListedBookCard from "../ListedBookCard/ListedBookCard";
 
 const ReadBooks = () => {
     const allBooksData = useLoaderData();
-    console.log(allBooksData)
+    const [showData, setShowData] = useState([])
 
-    const localStorageData = getData();
-    console.log(localStorageData)
-    
+    useEffect(() => {
+        const localStorageData = getData();
+        if (localStorageData.length > 0) {
+            const readBook = allBooksData.filter(book => localStorageData.includes(book.bookId))
+            setShowData(readBook)
+        }
+    }, [allBooksData])
 
     return (
-        <div>
-            <h1>Read Books stuff</h1>
-        </div>
+        <>
+           {
+            showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
+           }
+        </>
     );
 };
 
