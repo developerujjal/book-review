@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getData } from '../../Utility/Utility';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell } from 'recharts';
 import { useLoaderData } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
@@ -47,10 +48,10 @@ const ReadingPage = () => {
 
 
     return (
-        <div>
+        <div className='flex justify-center mt-8'>
             <BarChart
-                width={500}
-                height={300}
+                width={800}
+                height={400}
                 data={chartData}
                 margin={{
                     top: 20,
@@ -76,5 +77,15 @@ const ReadingPage = () => {
         </div>
     );
 };
+
+
+TriangleBar.propTypes = {
+    props: PropTypes.object.isRequired,
+    fill: PropTypes.string.isRequired, 
+    x: PropTypes.number.isRequired,    
+    y: PropTypes.number.isRequired,    
+    width: PropTypes.number.isRequired, 
+    height: PropTypes.number.isRequired 
+}
 
 export default ReadingPage;
