@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { saveData } from "../../Utility/Utility";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveDatasInLocal } from "../../Utility/WishListLocalStorage";
 
 const BookDetails = () => {
     const booksData = useLoaderData();
@@ -28,7 +29,13 @@ const BookDetails = () => {
 
 
     const handleStoreData = (id) => {
-            saveData(id)
+        saveData(id)
+
+
+    }
+
+    const handleWishList = (id) => {
+        saveDatasInLocal(id)
     }
 
     return (
@@ -82,16 +89,20 @@ const BookDetails = () => {
 
 
                             <button
-                                onClick={() => handleStoreData(bookId)}
+                                onClick={() => {
+                                    handleStoreData(bookId);
+                                }}
                                 className="relative z-30 inline-flex items-center justify-center w-auto px-8 py-2.5 overflow-hidden font-bold text-gray-500 transition-all duration-500 border border-gray-200 rounded-md cursor-pointer group ease bg-gradient-to-b from-white to-gray-50 hover:from-gray-50 hover:to-white active:to-white">
                                 <span className="w-full h-0.5 absolute bottom-0 group-active:bg-transparent left-0 bg-gray-100"></span>
                                 <span className="h-full w-0.5 absolute bottom-0 group-active:bg-transparent right-0 bg-gray-100"></span>
                                 Read
                             </button>
 
-                            <button 
-                            onClick={()=> handleStoreData(bookId)}
-                            className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                            <button
+                                onClick={() => {
+                                    handleWishList(bookId);
+                                }}
+                                className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
                                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                                 <span className="relative">Wishlist</span>
                             </button>

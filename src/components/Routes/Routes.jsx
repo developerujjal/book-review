@@ -27,7 +27,8 @@ const routers = createBrowserRouter([
                     },
                     {
                         path: 'wishlist-books',
-                        element: <WishListBooks />
+                        element: <WishListBooks />,
+                        loader: ()=> fetch('../booksData.json') // this is not a good practice
                     }
                 ]
             },

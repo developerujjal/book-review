@@ -7,6 +7,8 @@ const ReadBooks = () => {
     const allBooksData = useLoaderData();
     const [showData, setShowData] = useState([])
 
+
+
     useEffect(() => {
         const localStorageData = getData();
         if (localStorageData.length > 0) {
@@ -14,6 +16,7 @@ const ReadBooks = () => {
             setShowData(readBook)
         }
     }, [allBooksData])
+
 
     return (
         <>

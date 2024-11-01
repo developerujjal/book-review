@@ -11,18 +11,18 @@ const getData = () => {
 
 const saveData = (id) => {
     const datas = getData();
-    const isExist = datas.find(iteam => iteam === id);
+    const isExist = datas.find(iteam => iteam === id); 
+
     if (!isExist) {
         datas.push(id);
-        toast.success('Successfully Added');
+        toast.success('Book Added to Read List');
         localStorage.setItem('reading-books', JSON.stringify(datas));
-    }else{
-        toast.error("Sorry, Already Added");
+    } else {
+        toast.error("You have Already Read this Book");
     }
 
 
 }
-
 
 
 export { getData, saveData }
