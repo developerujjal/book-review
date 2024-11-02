@@ -12,10 +12,10 @@ Here are some resources that I used for this project:
 
 Tailwind CSS Components:
 
-- **DevDoJo UI**: [CSS Components](https://devdojo.com/tailwindcss/buttons#_)
-- **TailwindFlex**: [CSS Components](https://tailwindflex.com/_)
-- **ReadyMadeUI**: [CSS Components](https://readymadeui.com/)
-- **ReadyMadeUI**: [CSS Components](https://readymadeui.com/)
-- **MambaUI**: [CSS Components](https://mambaui.com/components)
+- **DevDoJo UI**: [DevDoJo UI CSS Components](https://devdojo.com/tailwindcss/buttons#_)
+- **TailwindFlex**: [TailwindFlex CSS Components](https://tailwindflex.com/_)
+- **ReadyMadeUI**: [ReadyMadeUI CSS Components](https://readymadeui.com/)
+- **ReadyMadeUI**: [ReadyMadeUI CSS Components](https://readymadeui.com/)
+- **MambaUI**: [MambaUI CSS Components](https://mambaui.com/components)
 
 
