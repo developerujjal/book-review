@@ -52,8 +52,8 @@ const ReadBooks = () => {
     return (
         <>
             {
-                isFilterApplied ?
-                    filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
+                
+                    // filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
                     showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
             }
         </>

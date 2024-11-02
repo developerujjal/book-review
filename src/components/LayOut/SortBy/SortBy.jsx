@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+ import PropTypes from 'prop-types';
 
 const SortBy = ({ handleAllFilter, handleRatingSort, handleNumberOfPage, handlePublishYear }) => {
 
@@ -64,4 +64,4 @@ SortBy.propTypes = {
     handlePublishYear: PropTypes.func.isRequired
 }
 
-export default SortBy;
+export default SortBy; 

@@ -36,6 +36,8 @@ const ListedBook = () => {
     }, [allBooksData])
 
 
+
+/* 
     const handleAllFilter = (sort) => {
         if (sort === 'all') {
             setFilterAll([...showData]);
@@ -63,16 +65,74 @@ const ListedBook = () => {
 
     }
 
-
     const handlePublishYear = (sort) => {
-        if(sort === 'publishYear'){
+        if (sort === 'publishYear') {
             const publishYear = showData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
             setIsPublishYear(publishYear)
             SetSortYearCondition(true)
-            
+
 
         }
     }
+    
+     */
+
+
+    const handleAllFilter = (sort) => {
+        if (sort === 'all') {
+            // Reset sorting conditions
+            setSortRatingCondition(false);
+            setSortNumCondition(false);
+            SetSortYearCondition(false);
+
+            setFilterAll([...showData]);
+            setIsFilterApplied(true);
+        }
+    };
+
+
+
+    const handleRatingSort = (sort) => {
+        if (sort === 'rating') {
+            // Reset other sort conditions
+            setSortNumCondition(false);
+            SetSortYearCondition(false);
+            setSortRatingCondition(true);
+            setIsFilterApplied(false)
+            
+            const ratingUpdate = showData.sort((a, b) => b.rating - a.rating);
+            setIsSortApplied(ratingUpdate);
+        }
+    }
+
+
+    const handleNumberOfPage = (sort) => {
+        if (sort === 'number') {
+            // Reset other sort conditions
+            setSortRatingCondition(false);
+            SetSortYearCondition(false);
+            setSortNumCondition(true);
+            setIsFilterApplied(false)
+
+            const numberOfPageUpdate = showData.sort((a, b) => b.totalPages - a.totalPages);
+            setIsSortNumberApplied(numberOfPageUpdate);
+        }
+    };
+
+
+    const handlePublishYear = (sort) => {
+        if (sort === 'publishYear') {
+            // Reset other sort conditions
+            setSortRatingCondition(false);
+            SetSortYearCondition(true);
+            setSortNumCondition(false);
+            setIsFilterApplied(false)
+
+            const publishYear = showData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+            setIsPublishYear(publishYear);
+        }
+    };
+
 
 
 
@@ -87,4 +147,4 @@ const ListedBook = () => {
     );
 };
 
-export default ListedBook;
+export default ListedBook; 
