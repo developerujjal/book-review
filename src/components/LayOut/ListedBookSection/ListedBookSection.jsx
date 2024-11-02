@@ -1,11 +1,10 @@
+import PropTypes from 'prop-types';
 import { Outlet } from "react-router-dom";
 import SortBy from "../SortBy/SortBy";
 import TabsMenu from "../TabsMenu/TabsMenu";
 
 
-const ListedBookSection = () => {
-
-
+const ListedBookSection = ({handleAllFilter}) => {
 
     return (
         <div className="container px-4 mx-auto">
@@ -15,7 +14,7 @@ const ListedBookSection = () => {
                         <h1>Books</h1>
                     </div>
                     {
-                        <SortBy />
+                        <SortBy handleAllFilter={handleAllFilter} />
                     }
                 </div>
 
@@ -35,5 +34,9 @@ const ListedBookSection = () => {
         </div>
     );
 };
+
+ListedBookSection.propTypes = {
+    handleAllFilter: PropTypes.func.isRequired
+}
 
 export default ListedBookSection;

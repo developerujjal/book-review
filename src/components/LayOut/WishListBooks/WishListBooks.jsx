@@ -3,7 +3,9 @@ import { useLoaderData } from "react-router-dom";
 import { getAllDatas } from "../../Utility/WishListLocalStorage";
 import ListedBookCard from "../ListedBookCard/ListedBookCard";
 
+
 const WishListBooks = () => {
+
 
     const getAllData = useLoaderData();
     const [displayWishList, setDisplayWishList] = useState([])

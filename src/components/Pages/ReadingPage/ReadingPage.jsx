@@ -80,12 +80,11 @@ const ReadingPage = () => {
 
 
 TriangleBar.propTypes = {
-    props: PropTypes.object.isRequired,
-    fill: PropTypes.string.isRequired, 
-    x: PropTypes.number.isRequired,    
-    y: PropTypes.number.isRequired,    
-    width: PropTypes.number.isRequired, 
-    height: PropTypes.number.isRequired 
+    props: PropTypes.object,
+    x: PropTypes.number, 
+    y: PropTypes.number,    
+    width: PropTypes.number, 
+    height: PropTypes.number 
 }
 
 export default ReadingPage;

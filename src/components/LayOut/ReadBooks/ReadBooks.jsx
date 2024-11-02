@@ -1,13 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import { getData } from "../../Utility/Utility";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ListedBookCard from "../ListedBookCard/ListedBookCard";
+import { filterAllContext } from "../../Pages/ListedBook/ListedBook";
+
+
+
 
 const ReadBooks = () => {
+
     const allBooksData = useLoaderData();
     const [showData, setShowData] = useState([])
-
-
 
     useEffect(() => {
         const localStorageData = getData();
@@ -18,13 +21,20 @@ const ReadBooks = () => {
     }, [allBooksData])
 
 
+    const { filterAll, isFilterApplied } = useContext(filterAllContext)
+    console.log(filterAll)
+
+
     return (
         <>
-           {
-            showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
-           }
+            {
+                isFilterApplied ? 
+                filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
+                showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
+            }
         </>
     );
 };
+
 
 export default ReadBooks;
