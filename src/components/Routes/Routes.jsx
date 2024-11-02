@@ -6,11 +6,13 @@ import ReadingPage from "../Pages/ReadingPage/ReadingPage";
 import BookDetails from "../LayOut/BookDetails/BookDetails";
 import ReadBooks from "../LayOut/ReadBooks/ReadBooks";
 import WishListBooks from "../LayOut/WishListBooks/WishListBooks";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const routers = createBrowserRouter([
     {
         path: '/',
         element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
@@ -19,28 +21,28 @@ const routers = createBrowserRouter([
             {
                 path: '/listed-books',
                 element: <ListedBook />,
-                loader: ()=> fetch('../booksData.json'),
+                loader: () => fetch('../booksData.json'),
                 children: [
                     {
                         index: true,
                         element: <ReadBooks />,
-                        loader: ()=> fetch('../booksData.json') // this is not a good practice
+                        loader: () => fetch('../booksData.json') // this is not a good practice
                     },
                     {
                         path: 'wishlist-books',
                         element: <WishListBooks />,
-                        loader: ()=> fetch('../booksData.json') // this is not a good practice
+                        loader: () => fetch('../booksData.json') // this is not a good practice
                     }
                 ]
             },
             {
                 path: '/reading-pages',
                 element: <ReadingPage />,
-                loader: ()=> fetch('../booksData.json')
+                loader: () => fetch('../booksData.json')
             },
             {
                 path: '/book/:bookID',
-                loader: ()=> fetch('../booksData.json'),
+                loader: () => fetch('../booksData.json'),
                 element: <BookDetails />
             }
         ]
