@@ -10,13 +10,16 @@ const NavBar = () => {
                 <div className="hidden lg:flex lg:items-center lg:gap-4 text-[#131313CC] second-text-font">
                     <NavLink
                         to={'/'}
-                        className={({isActive})=> isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2 font-medium ': ' px-4 py-2 font-medium'}>Home</NavLink>
+                        className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2 font-medium ' : ' px-4 py-2 font-medium'}>Home</NavLink>
                     <NavLink
                         to={'/listed-books'}
-                        className={({isActive})=> isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2 font-medium': ' px-4 py-2 font-medium'}>Listed Books</NavLink>
+                        className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2 font-medium' : ' px-4 py-2 font-medium'}>Listed Books</NavLink>
                     <NavLink
                         to={'/reading-pages'}
-                        className={({isActive})=> isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium': ' px-4 py-2 font-medium'}>Reading Pages</NavLink>
+                        className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium' : ' px-4 py-2 font-medium'}>Reading Pages</NavLink>
+                    <NavLink
+                        to={'/contact'}
+                        className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium' : ' px-4 py-2 font-medium'}>Contact</NavLink>
                 </div>
                 <div className="items-center second-text-font flex-shrink-0 hidden lg:flex lg:gap-2">
                     <button className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Sign in</button>
