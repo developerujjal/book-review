@@ -26,6 +26,15 @@ const ReadBooks = () => {
 
 
 
+    // All Sorting
+    useEffect(() => {
+        if (isFilterApplied) {
+            setShowData(filterAll)
+        }
+    }, [isFilterApplied, filterAll])
+
+
+    // Rating Sorting
     useEffect(() => {
         if (sortRatingCondition) {
             setShowData(isSortApplied)
@@ -33,29 +42,30 @@ const ReadBooks = () => {
     }, [sortRatingCondition, isSortApplied])
 
 
-
-    useEffect(()=>{
-        if(sortNumCondition){
+    // Number of Page Sorting
+    useEffect(() => {
+        if (sortNumCondition) {
             setShowData(isSortNumberApplied)
         }
-    },[sortNumCondition, isSortNumberApplied])
+    }, [sortNumCondition, isSortNumberApplied])
 
 
-    useEffect(()=>{
-        if(sortYearCondition){
+    // Publish Year Sorting
+    useEffect(() => {
+        if (sortYearCondition) {
             setShowData(isSortPublishYear)
         }
-    },[sortYearCondition, isSortPublishYear])
+    }, [sortYearCondition, isSortPublishYear])
 
 
 
     return (
         <>
+
             {
-                
-                    // filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
-                    showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
+                showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
             }
+
         </>
     );
 };

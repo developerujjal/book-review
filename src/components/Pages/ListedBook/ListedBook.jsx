@@ -37,45 +37,45 @@ const ListedBook = () => {
 
 
 
-/* 
-    const handleAllFilter = (sort) => {
-        if (sort === 'all') {
-            setFilterAll([...showData]);
-            setIsFilterApplied(true)
-        }
-    };
-
-
-    const handleRatingSort = (sort) => {
-        if (sort === 'rating') {
-            const ratingUpdate = showData.sort((a, b) => b.rating - a.rating);
-            setIsSortApplied(ratingUpdate);
-            setSortRatingCondition(true)
-        }
-
-    }
-
-
-    const handleNumberOfPage = (sort) => {
-        if (sort === 'number') {
-            const numberOfPageUpdate = showData.sort((a, b) => b.totalPages - a.totalPages);
-            setIsSortNumberApplied(numberOfPageUpdate)
-            setSortNumCondition(true)
-        }
-
-    }
-
-    const handlePublishYear = (sort) => {
-        if (sort === 'publishYear') {
-            const publishYear = showData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
-            setIsPublishYear(publishYear)
-            SetSortYearCondition(true)
-
-
-        }
-    }
+    /* 
+        const handleAllFilter = (sort) => {
+            if (sort === 'all') {
+                setFilterAll([...showData]);
+                setIsFilterApplied(true)
+            }
+        };
     
-     */
+    
+        const handleRatingSort = (sort) => {
+            if (sort === 'rating') {
+                const ratingUpdate = showData.sort((a, b) => b.rating - a.rating);
+                setIsSortApplied(ratingUpdate);
+                setSortRatingCondition(true)
+            }
+    
+        }
+    
+    
+        const handleNumberOfPage = (sort) => {
+            if (sort === 'number') {
+                const numberOfPageUpdate = showData.sort((a, b) => b.totalPages - a.totalPages);
+                setIsSortNumberApplied(numberOfPageUpdate)
+                setSortNumCondition(true)
+            }
+    
+        }
+    
+        const handlePublishYear = (sort) => {
+            if (sort === 'publishYear') {
+                const publishYear = showData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+                setIsPublishYear(publishYear)
+                SetSortYearCondition(true)
+    
+    
+            }
+        }
+        
+         */
 
 
     const handleAllFilter = (sort) => {
@@ -87,6 +87,7 @@ const ListedBook = () => {
 
             setFilterAll([...showData]);
             setIsFilterApplied(true);
+
         }
     };
 
@@ -99,8 +100,9 @@ const ListedBook = () => {
             SetSortYearCondition(false);
             setSortRatingCondition(true);
             setIsFilterApplied(false)
-            
-            const ratingUpdate = showData.sort((a, b) => b.rating - a.rating);
+
+            const displayData = [...showData]
+            const ratingUpdate = displayData.sort((a, b) => b.rating - a.rating);
             setIsSortApplied(ratingUpdate);
         }
     }
@@ -114,7 +116,8 @@ const ListedBook = () => {
             setSortNumCondition(true);
             setIsFilterApplied(false)
 
-            const numberOfPageUpdate = showData.sort((a, b) => b.totalPages - a.totalPages);
+            const displayData = [...showData]
+            const numberOfPageUpdate = displayData.sort((a, b) => b.totalPages - a.totalPages);
             setIsSortNumberApplied(numberOfPageUpdate);
         }
     };
@@ -128,7 +131,8 @@ const ListedBook = () => {
             setSortNumCondition(false);
             setIsFilterApplied(false)
 
-            const publishYear = showData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+            const displayData = [...showData]
+            const publishYear = displayData.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
             setIsPublishYear(publishYear);
         }
     };

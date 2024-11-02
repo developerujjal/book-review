@@ -1,4 +1,4 @@
- import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const SortBy = ({ handleAllFilter, handleRatingSort, handleNumberOfPage, handlePublishYear }) => {
 
@@ -9,7 +9,7 @@ const SortBy = ({ handleAllFilter, handleRatingSort, handleNumberOfPage, handleP
         selectElement.innerText = target;
     }
 
-    
+
     return (
         <div className="flex py-8 rounded-xl dark:bg-gray-900 justify-center items-center">
             <div className="w-[150px] text-gray-900 dark:text-gray-100">
@@ -41,7 +41,7 @@ const SortBy = ({ handleAllFilter, handleRatingSort, handleNumberOfPage, handleP
                             Number of Pages
                         </div>
                         <div
-                            onClick={(e)=> {
+                            onClick={(e) => {
                                 handleText(e);
                                 handlePublishYear('publishYear')
                             }}
