@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const SortBy = ({ handleAllFilter }) => {
+const SortBy = ({ handleAllFilter, handleRatingSort, handleNumberOfPage, handlePublishYear }) => {
 
 
     function handleText(e) {
@@ -9,6 +9,7 @@ const SortBy = ({ handleAllFilter }) => {
         selectElement.innerText = target;
     }
 
+    
     return (
         <div className="flex py-8 rounded-xl dark:bg-gray-900 justify-center items-center">
             <div className="w-[150px] text-gray-900 dark:text-gray-100">
@@ -25,16 +26,25 @@ const SortBy = ({ handleAllFilter }) => {
                             className=" w-full block cursor-pointer hover:bg-white dark:hover:bg-gray-900 dark:bg-gray-800 hover:text-link px-3 py-2 rounded-md">
                             All</div>
                         <div
-                            onClick={handleText}
+                            onClick={(e) => {
+                                handleText(e);
+                                handleRatingSort('rating')
+                            }}
                             className=" w-full block cursor-pointer hover:bg-white dark:hover:bg-gray-900 dark:bg-gray-800 hover:text-link px-3 py-2 rounded-md">
                             Rating</div>
                         <div
-                            onClick={handleText}
+                            onClick={(e) => {
+                                handleText(e);
+                                handleNumberOfPage('number')
+                            }}
                             className=" w-full block cursor-pointer hover:bg-white dark:hover:bg-gray-900 dark:bg-gray-800 hover:text-link px-3 py-2 rounded-md">
                             Number of Pages
                         </div>
                         <div
-                            onClick={handleText}
+                            onClick={(e)=> {
+                                handleText(e);
+                                handlePublishYear('publishYear')
+                            }}
                             className=" w-full block cursor-pointer hover:bg-white dark:hover:bg-gray-900 dark:bg-gray-800 hover:text-link px-3 py-2 rounded-md">
                             Publisted Year
                         </div>
@@ -48,7 +58,10 @@ const SortBy = ({ handleAllFilter }) => {
 
 
 SortBy.propTypes = {
-    handleAllFilter: PropTypes.func.isRequired
+    handleAllFilter: PropTypes.func.isRequired,
+    handleRatingSort: PropTypes.func.isRequired,
+    handleNumberOfPage: PropTypes.func.isRequired,
+    handlePublishYear: PropTypes.func.isRequired
 }
 
 export default SortBy;

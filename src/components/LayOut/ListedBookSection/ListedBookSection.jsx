@@ -4,7 +4,7 @@ import SortBy from "../SortBy/SortBy";
 import TabsMenu from "../TabsMenu/TabsMenu";
 
 
-const ListedBookSection = ({handleAllFilter}) => {
+const ListedBookSection = ({handleAllFilter, handleRatingSort, handleNumberOfPage, handlePublishYear}) => {
 
     return (
         <div className="container px-4 mx-auto">
@@ -14,7 +14,7 @@ const ListedBookSection = ({handleAllFilter}) => {
                         <h1>Books</h1>
                     </div>
                     {
-                        <SortBy handleAllFilter={handleAllFilter} />
+                        <SortBy handleAllFilter={handleAllFilter} handleRatingSort={handleRatingSort} handleNumberOfPage={handleNumberOfPage} handlePublishYear={handlePublishYear}/>
                     }
                 </div>
 
@@ -36,7 +36,11 @@ const ListedBookSection = ({handleAllFilter}) => {
 };
 
 ListedBookSection.propTypes = {
-    handleAllFilter: PropTypes.func.isRequired
+    handleAllFilter: PropTypes.func.isRequired,
+    handleRatingSort: PropTypes.func.isRequired,
+    handleNumberOfPage: PropTypes.func.isRequired,
+    handlePublishYear: PropTypes.func.isRequired
+
 }
 
 export default ListedBookSection;

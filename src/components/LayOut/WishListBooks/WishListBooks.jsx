@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getAllDatas } from "../../Utility/WishListLocalStorage";
 import ListedBookCard from "../ListedBookCard/ListedBookCard";
+import { filterAllContext } from "../../Pages/ListedBook/ListedBook";
 
 
 const WishListBooks = () => {
+
+
+    const { filterAll, isFilterApplied } = useContext(filterAllContext)
 
 
     const getAllData = useLoaderData();
@@ -32,7 +36,9 @@ const WishListBooks = () => {
     return (
         <>
             {
-                displayWishList.map((singelWishList => <ListedBookCard book={singelWishList} key={singelWishList.bookId} />))
+                isFilterApplied ?
+                displayWishList.map((singelWishList => <ListedBookCard book={singelWishList} key={singelWishList.bookId} />)) :
+                filterAll.map((singelWishList => <ListedBookCard book={singelWishList} key={singelWishList.bookId} />))
             }
         </>
     );

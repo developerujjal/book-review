@@ -9,8 +9,12 @@ import { filterAllContext } from "../../Pages/ListedBook/ListedBook";
 
 const ReadBooks = () => {
 
+    const { filterAll, isFilterApplied, isSortApplied, sortRatingCondition, isSortNumberApplied, sortNumCondition, isSortPublishYear, sortYearCondition } = useContext(filterAllContext)
+
+
     const allBooksData = useLoaderData();
     const [showData, setShowData] = useState([])
+
 
     useEffect(() => {
         const localStorageData = getData();
@@ -21,16 +25,36 @@ const ReadBooks = () => {
     }, [allBooksData])
 
 
-    const { filterAll, isFilterApplied } = useContext(filterAllContext)
-    console.log(filterAll)
+
+    useEffect(() => {
+        if (sortRatingCondition) {
+            setShowData(isSortApplied)
+        }
+    }, [sortRatingCondition, isSortApplied])
+
+
+
+    useEffect(()=>{
+        if(sortNumCondition){
+            setShowData(isSortNumberApplied)
+        }
+    },[sortNumCondition, isSortNumberApplied])
+
+
+    useEffect(()=>{
+        if(sortYearCondition){
+            setShowData(isSortPublishYear)
+        }
+    },[sortYearCondition, isSortPublishYear])
+
 
 
     return (
         <>
             {
-                isFilterApplied ? 
-                filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
-                showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
+                isFilterApplied ?
+                    filterAll.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />)) :
+                    showData.map((singelBook => <ListedBookCard book={singelBook} key={singelBook.bookId} />))
             }
         </>
     );
