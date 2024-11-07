@@ -1,6 +1,25 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../ContextAuth/ContextAuth";
+
 
 const NavBar = () => {
+    const { user, logOutUser, } = useContext(AuthContext)
+
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => {
+                console.log("Successfully Log Out!")
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
+
+
     return (
         <nav>
             <div className="container px-4 py-5 flex justify-between mx-auto">
@@ -20,9 +39,23 @@ const NavBar = () => {
                     <NavLink
                         to={'/contact'}
                         className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium' : ' px-4 py-2 font-medium'}>Contact</NavLink>
+                    <NavLink
+                        to={'/profile'}
+                        className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium' : ' px-4 py-2 font-medium'}>Profile</NavLink>
                 </div>
                 <div className="items-center second-text-font flex-shrink-0 hidden lg:flex lg:gap-2">
-                    <Link to={'/login'} className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Sign in</Link>
+
+                    {
+                        user ?
+                            <button
+                                onClick={handleLogOut}
+                                className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Log Out</button> :
+                            <Link
+                                to={'/login'}
+                                className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Sign in</Link>
+
+                    }
+
                     <Link to={'signup'} className="self-center px-4 py-2 rounded bg-[#59C6D2] text-white font-bold">Sign up</Link>
                 </div>
                 <button className="p-4 lg:hidden">
@@ -30,7 +63,7 @@ const NavBar = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-            </div>
+            </div >
         </nav >
     );
 };

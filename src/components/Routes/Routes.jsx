@@ -10,6 +10,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Contact from "../Pages/Contact/Contact";
 import LogIn from "../Pages/LogIn/LogIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import Profile from "../Pages/Profile/Profile";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const routers = createBrowserRouter([
     {
@@ -59,6 +61,10 @@ const routers = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp />
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoutes><Profile /></PrivateRoutes>
             }
         ]
     }
