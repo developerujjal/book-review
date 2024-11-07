@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../ContextAuth/ContextAuth";
 import { Link, useNavigate } from "react-router-dom";
+import { sendPasswordResetEmail } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 const LogIn = () => {
     const { signinUser } = useContext(AuthContext)
     const nagivate = useNavigate()
+    const emailRef = useRef()
 
 
     const handleSignIn = (e) => {
@@ -25,6 +28,25 @@ const LogIn = () => {
                 console.error(error)
             })
     }
+
+
+    
+
+    const sendForgetPasswordLink = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            return console.log("Please type your email")
+        }
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert('Password reset email sent!')
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
 
 
     return (
@@ -66,12 +88,12 @@ const LogIn = () => {
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email address</label>
-                                <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                                <input ref={emailRef} type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
                                     <label htmlFor="password" className="text-sm">Password</label>
-                                    <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-600">Forgot password?</a>
+                                    <Link onClick={sendForgetPasswordLink} className="text-xs hover:underline dark:text-gray-600">Forgot password?</Link>
                                 </div>
                                 <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                             </div>

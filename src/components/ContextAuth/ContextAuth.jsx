@@ -22,7 +22,7 @@ const ContextAuth = ({ children }) => {
 
     const logOutUser = () => {
         setLoading(true)
-       return signOut(auth)
+        return signOut(auth)
     }
 
 
@@ -44,7 +44,8 @@ const ContextAuth = ({ children }) => {
         signinUser,
         user,
         logOutUser,
-        loading
+        loading,
+        setUser
     }
 
     return (

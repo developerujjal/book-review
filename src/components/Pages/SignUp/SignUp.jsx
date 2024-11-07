@@ -29,7 +29,7 @@ const SignUp = () => {
             return setErrorMess("Please type your Value Email, Thanks!")
         } else if (!passwordRegex.test(password)) {
             return setErrorMess("Please Type a UpperCase Letter!")
-        }else if(!checked){
+        } else if (!checked) {
             setErrorMess("Please Accepts our Term and Condition")
             return;
         }
