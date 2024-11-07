@@ -8,6 +8,8 @@ import ReadBooks from "../LayOut/ReadBooks/ReadBooks";
 import WishListBooks from "../LayOut/WishListBooks/WishListBooks";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Contact from "../Pages/Contact/Contact";
+import LogIn from "../Pages/LogIn/LogIn";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const routers = createBrowserRouter([
     {
@@ -47,8 +49,16 @@ const routers = createBrowserRouter([
                 element: <BookDetails />
             },
             {
-                path:'/contact',
+                path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/login',
+                element: <LogIn />
+            },
+            {
+                path: '/signup',
+                element: <SignUp />
             }
         ]
     }

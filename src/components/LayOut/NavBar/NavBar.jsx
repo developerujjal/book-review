@@ -22,8 +22,8 @@ const NavBar = () => {
                         className={({ isActive }) => isActive ? 'border rounded border-[#23BE0A] text-[#23BE0A] px-4 py-2  font-medium' : ' px-4 py-2 font-medium'}>Contact</NavLink>
                 </div>
                 <div className="items-center second-text-font flex-shrink-0 hidden lg:flex lg:gap-2">
-                    <button className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Sign in</button>
-                    <button className="self-center px-4 py-2 rounded bg-[#59C6D2] text-white font-bold">Sign up</button>
+                    <Link to={'/login'} className="self-center px-4 py-2  rounded bg-[#23BE0A] text-white font-bold">Sign in</Link>
+                    <Link to={'signup'} className="self-center px-4 py-2 rounded bg-[#59C6D2] text-white font-bold">Sign up</Link>
                 </div>
                 <button className="p-4 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
