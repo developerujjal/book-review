@@ -2,7 +2,26 @@ import { useContext } from "react";
 import { AuthContext } from "../../ContextAuth/ContextAuth";
 
 const LogIn = () => {
-    const {} = useContext(AuthContext)
+    const { signinUser } = useContext(AuthContext)
+
+
+    const handleSignIn = (e) => {
+        e.preventDefault()
+        console.log("clicked")
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password)
+
+        signinUser(email, password)
+            .then(userCredential => {
+                const user = userCredential.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
 
     return (
         <section>
@@ -37,7 +56,9 @@ const LogIn = () => {
                         <p className="px-3 dark:text-gray-600">OR</p>
                         <hr className="w-full dark:text-gray-600" />
                     </div>
-                    <form noValidate="" action="" className="space-y-8">
+                    <form
+                        onSubmit={handleSignIn}
+                        className="space-y-8">
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email address</label>
@@ -51,7 +72,7 @@ const LogIn = () => {
                                 <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                             </div>
                         </div>
-                        <button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-[#23BE0A] hover:bg-[#59C6D2] dark:text-gray-50">Sign in</button>
+                        <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-[#23BE0A] hover:bg-[#59C6D2] dark:text-gray-50">Sign in</button>
                     </form>
                 </div>
             </div>

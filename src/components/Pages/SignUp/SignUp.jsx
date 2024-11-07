@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../ContextAuth/ContextAuth";
 
 
 const SignUp = () => {
+    const { createNewUser } = useContext(AuthContext)
+
     const [errorMess, setErrorMess] = useState('')
+    const [success, setSuccessMessage] = useState('')
     const [showPass, setShowPassword] = useState(false)
 
     const handleSingUp = (e) => {
@@ -10,12 +14,14 @@ const SignUp = () => {
         console.log("clicked")
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const checked = e.target.checkbox.checked;
         console.log(email, password)
 
         const gmailRegex = /^[a-zA-Z\d._%+-]+@gmail\.com$/;
         const passwordRegex = /[A-Z]/;
 
         setErrorMess('')
+        setSuccessMessage('')
 
         if (!password > 5) {
             return setErrorMess('You Type more then 5 Character')
@@ -23,8 +29,21 @@ const SignUp = () => {
             return setErrorMess("Please type your Value Email, Thanks!")
         } else if (!passwordRegex.test(password)) {
             return setErrorMess("Please Type a UpperCase Letter!")
+        }else if(!checked){
+            setErrorMess("Please Accepts our Term and Condition")
+            return;
         }
 
+
+        createNewUser(email, password)
+            .then(userCredential => {
+                const user = userCredential.user;
+                console.log(user)
+                setSuccessMessage('Sucessfully Submited!')
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
 
     }
@@ -107,7 +126,7 @@ const SignUp = () => {
                                 </div>
 
                                 <div className="flex items-center">
-                                    <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                                    <input id="remember-me" name="checkbox" type="checkbox" className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
                                     <label htmlFor="remember-me" className="ml-3 block text-sm text-gray-800">
                                         I accept the <a className="text-blue-600 font-semibold hover:underline ml-1">Terms and Conditions</a>
                                     </label>
@@ -125,7 +144,17 @@ const SignUp = () => {
                     </div>
                 </div>
                 <div className="text-center text-2xl">
-                    <p className="text-red-800">{errorMess}</p>
+                    {
+                        errorMess && (
+                            <p className="text-red-800">{errorMess}</p>
+                        )
+                    }
+
+                    {
+                        success && (
+                            <p className="text-green-800 text-bold">{success}</p>
+                        )
+                    }
                 </div>
             </div>
         </section>
